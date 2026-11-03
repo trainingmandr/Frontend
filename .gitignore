@@ -1,0 +1,21 @@
+# Secrets and local settings (each folder's own .gitignore also covers these)
+.env
+.env.*
+!.env.example
+
+# Dependencies and build output
+node_modules/
+.next/
+*.tsbuildinfo
+.venv/
+__pycache__/
+*.pyc
+
+# Payslip emails written in test mode
+backend/outbox/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

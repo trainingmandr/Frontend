@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: #1f3a5f;
+  --color-teal: #0f9d8a;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@utility sphere-main {
+  background:
+    linear-gradient(
+      179deg,
+      rgb(255 255 255 / 0) 17%,
+      rgb(255 255 255 / 0.95) 20%,
+      rgb(255 255 255 / 0) 27%
+    ),
+    radial-gradient(
+      65% 58% at 100% 66%,
+      rgb(150 174 199 / 0.95) 0%,
+      rgb(176 195 214 / 0.7) 50%,
+      rgb(190 205 220 / 0) 100%
+    ),
+    linear-gradient(
+      178deg,
+      #e9edf1 0%,
+      #f4f6f8 12%,
+      #fbfcfd 20%,
+      #f3f5f8 28%,
+      #dfe5ec 55%,
+      #c6d3df 100%
+    );
+}
+
+@utility sphere-accent-top {
+  background: linear-gradient(180deg, #ffffff 0%, #d9dce3 35%, #7a8aa2 68%);
+}
+
+@utility sphere-accent-bottom {
+  background: linear-gradient(0deg, #ffffff 0%, #d3d6dd 30%, #7a8ba3 72%);
+}
+
+/* Falling order is left to right: book1 (leftmost) falls first and
+   lands fully flat (-90deg), acting as the anchor. Books 2-6 fall
+   afterward in sequence but stop at a partial incline instead of
+   going fully flat, so they end up leaning against the book before
+   them. Every book gets the same 6%-of-cycle fall window, so they
+   all fall at equal speed — only the start time and final angle
+   differ. */
+@keyframes book1Fall {
+  0% {
+    transform: rotate(0deg);
+  }
+  6% {
+    transform: rotate(-90deg);
+  }
+  90% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes book2Fall {
+  0%,
+  8% {
+    transform: rotate(0deg);
+  }
+  14% {
+    transform: rotate(-78deg);
+  }
+  90% {
+    transform: rotate(-78deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes book3Fall {
+  0%,
+  16% {
+    transform: rotate(0deg);
+  }
+  22% {
+    transform: rotate(-68deg);
+  }
+  90% {
+    transform: rotate(-68deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes book4Fall {
+  0%,
+  24% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-58deg);
+  }
+  90% {
+    transform: rotate(-58deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes book5Fall {
+  0%,
+  32% {
+    transform: rotate(0deg);
+  }
+  38% {
+    transform: rotate(-48deg);
+  }
+  90% {
+    transform: rotate(-48deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes book6Fall {
+  0%,
+  40% {
+    transform: rotate(0deg);
+  }
+  46% {
+    transform: rotate(-38deg);
+  }
+  90% {
+    transform: rotate(-38deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
